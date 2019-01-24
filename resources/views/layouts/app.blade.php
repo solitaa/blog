@@ -10,13 +10,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -73,8 +74,40 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                    @if(Auth::check())
+                        <div class="col-lg-4">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="{{ route('home')}}">Home</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('post.create')}}">Create new post</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('categories')}}">Categories</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('category.create')}}">Create new category</a>
+                                </li>
+                            </ul>
+                        </div>
+                    @endif
+                    <div class="col-lg-8">
+                        @include('inc.messages')
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script>
+        @if(Session::has('success'))
+            toastr.success("{{Session::get('success')}}")
+        @endif
+    </script>
 </body>
 </html>
