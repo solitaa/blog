@@ -3,27 +3,27 @@
 @section('content')
     <div class="card">
         <div class="card card-header">
-            Categories
+            Tags
         </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
-                    <th>Category name</th>
+                    <th>Tag name</th>
                     <th>Editing</th>
                     <th>Deleting</th>
                 </thead>
                 <tbody>
-                    @if(count($categories) > 0)
-                        @foreach($categories as $category)
+                    @if(count($tags) > 0)
+                        @foreach($tags as $tag)
                             <tr>
-                                <td>{{$category->name}}</td>
-                                <td><a href="{{ route('category.edit', ['id'=> $category->id])}}"  class="btn btn-primary btn-sm">Edit</a></td>
-                                <td><a href="{{ route('category.delete', ['id'=> $category->id])}}"  class="btn btn-danger btn-sm">Delete</a></td>
+                                <td>{{$tag->tag}}</td>
+                                <td><a href="{{ route('tag.edit', ['id'=> $tag->id])}}"  class="btn btn-primary btn-sm">Edit</a></td>
+                                <td><a href="{{ route('tag.delete', ['id'=> $tag->id])}}"  class="btn btn-danger btn-sm">Delete</a></td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td>No categories</td>
+                            <td>No tags</td>
                         </tr>
                     @endif
                 </tbody>

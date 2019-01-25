@@ -21,8 +21,17 @@
                     <select name="category_id" class="form-control"  id="category">
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
-                    @endforeach
+                        @endforeach
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Select tags</label>
+                    @foreach($tags as $tag)
+                        <div class="form-check">
+                            <input name="tags[]" type="checkbox" value="{{$tag->id}}" class="form-check-input" id="tag{{$tag->id}}">
+                            <label class="form-check-label"  for="tag{{$tag->id}}">{{$tag->tag}}</label>
+                        </div>
+                    @endforeach
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>

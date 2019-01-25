@@ -22,3 +22,16 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Post::class, function (Faker $faker) {
+    
+    $str = $faker->sentence($nbWords = 5, $variableNbWords = true);
+    
+    return [
+        'title' => $str,
+        'content' => $faker->sentence($nbWords = 20, $variableNbWords = true),
+        'slug' => str_slug($str),
+        'category_id' => $faker->numberBetween($min = 2, $max = 4),
+        'featured' => $faker->imageUrl(400,300)
+    ];
+});
