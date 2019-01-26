@@ -29,12 +29,11 @@ class PostsController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-
-        if($categories->count() == 0){
-            Session::flash('info', 'Before creating a post you must create categories.');
+        if($categories->count() == 0 || $tags->count() == 0)
+        {
+            Session::flash('info', 'You must have some categories and tags before attempting to create a post.');
             return redirect()->back();
         }
-
         return view('admin.posts.create')->with('categories', $categories)->with('tags', $tags);
     }
 
@@ -74,6 +73,7 @@ class PostsController extends Controller
 
 
         $post->save();
+        $post->tags()->attach($request->tags);
 
 
 
@@ -143,7 +143,7 @@ class PostsController extends Controller
         $post->save();
 
 
-        $post->tags()->attach($request->tags);
+        $post->tags()->sync($request->tags);
 
 
 

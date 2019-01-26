@@ -17,16 +17,14 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    dd(App\Tag::find(3)->posts);
+    dd(App\User::find(1)->profile);
 });
-
 
 
 Auth::routes();
 
 
-
-Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
@@ -43,8 +41,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::post('/post/update/{id}', 'PostsController@update')->name('post.update');
 
 
-
-
     Route::get('/category/create', 'CategoriesController@create')->name('category.create');
     Route::post('/category/store', 'CategoriesController@store')->name('category.store');
     Route::get('/categories', 'CategoriesController@index')->name('categories');
@@ -53,11 +49,41 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::post('/category/update/{id}', 'CategoriesController@update')->name('category.update');
 
 
-
     Route::get('/tag/create', 'TagsController@create')->name('tag.create');
     Route::post('/tag/store', 'TagsController@store')->name('tag.store');
     Route::get('/tags', 'TagsController@index')->name('tags');
     Route::get('/tag/edit/{id}', 'TagsController@edit')->name('tag.edit');
     Route::get('/tag/delete/{id}', 'TagsController@destroy')->name('tag.delete');
     Route::post('/tag/update/{id}', 'TagsController@update')->name('tag.update');
+
+
+    Route::get('/users', 'UsersController@index')->name('users');
+    Route::get('/user/create', 'UsersController@create')->name('user.create');
+    Route::post('/user/store', 'UsersController@store')->name('user.store');
+
+    Route::get('/user/admin/{id}', 'UsersController@admin')->name('user.admin');
+    Route::get('/user/profile', 'ProfilesController@index')->name('user.profile');
+    Route::get('/user/delete/{id}', 'UsersController@destroy')->name('user.delete');
+    Route::post('/user/profile/update', 'ProfilesController@update')->name('user.profile.update');
+
+
+    Route::get('/settings', 'SettingsController@index')->name('settings');
+    Route::post('/settings/update', 'SettingsController@update')->name('settings.update');
+
+
+
+//    Route::get('user/profile', [
+//        'uses' => 'ProfilesController@index',
+//        'as' => 'user.profile'
+//    ]);
+//    Route::get('user/delete/{id}', [
+//        'uses' => 'UsersController@destroy',
+//        'as' => 'user.delete'
+//    ]);
+//    Route::post('/user/profile/update', [
+//        'uses' => 'ProfilesController@update',
+//        'as' => 'user.profile.update'
+//    ]);
+
+
 });

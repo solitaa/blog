@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 25, 2019 at 04:46 PM
--- Server version: 5.7.23
--- PHP Version: 7.2.10
+-- Generation Time: Jan 26, 2019 at 04:04 PM
+-- Server version: 5.7.19
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -35,17 +35,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'a', '2019-01-25 19:39:06', '2019-01-25 19:39:06'),
-(2, 'b', '2019-01-25 19:39:10', '2019-01-25 19:39:10'),
-(3, 'c', '2019-01-25 19:39:13', '2019-01-25 19:39:13'),
-(4, 'd', '2019-01-25 19:39:15', '2019-01-25 19:39:15');
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -59,19 +49,21 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(19, '2014_10_12_000000_create_users_table', 1),
-(20, '2014_10_12_100000_create_password_resets_table', 1),
-(21, '2019_01_24_102927_create_posts_table', 1),
-(22, '2019_01_24_104112_create_categories_table', 1),
-(23, '2019_01_25_120924_create_tags_table', 2),
-(24, '2019_01_25_121653_create_post_tag_table', 2);
+(32, '2014_10_12_000000_create_users_table', 1),
+(33, '2014_10_12_100000_create_password_resets_table', 1),
+(34, '2019_01_24_102927_create_posts_table', 1),
+(35, '2019_01_24_104112_create_categories_table', 1),
+(36, '2019_01_25_120924_create_tags_table', 1),
+(37, '2019_01_25_121653_create_post_tag_table', 1),
+(38, '2019_01_26_003941_create_profiles_table', 1),
+(39, '2019_01_26_153052_create_settings_table', 2);
 
 -- --------------------------------------------------------
 
@@ -105,31 +97,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `posts`
---
-
-INSERT INTO `posts` (`id`, `title`, `content`, `category_id`, `featured`, `slug`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(14, 'bdfgggd', 'dwqdqqdw', 3, 'uploads/post/15484256553.PNG', 'bdfgggd', NULL, '2019-01-25 22:14:15', '2019-01-25 22:14:15'),
-(15, 'bdfgggd', 'dwqdqqdw', 3, 'uploads/post/15484257613.PNG', 'bdfgggd', NULL, '2019-01-25 22:16:01', '2019-01-25 22:16:01'),
-(16, 'bdfgggd', 'dwqdqqdw', 3, 'uploads/post/15484257813.PNG', 'bdfgggd', NULL, '2019-01-25 22:16:21', '2019-01-25 22:16:21'),
-(2, 'Perspiciatis nesciunt quia omnis.', 'Tempore ut nemo eum dignissimos veniam ea enim aperiam rem eligendi ad eligendi sequi maiores dolore omnis voluptatem eos dolores in voluptates perspiciatis et ea.', 2, 'https://lorempixel.com/400/300/?51636', 'perspiciatis-nesciunt-quia-omnis', NULL, '2019-01-25 19:12:03', '2019-01-25 20:01:10'),
-(11, 'aa', 'bbbb', 2, 'uploads/post/15484172445.PNG', 'aa', NULL, '2019-01-25 19:40:28', '2019-01-25 20:01:10'),
-(12, 'verv', 'wqwq', 3, 'uploads/post/15484242784.PNG', 'verv', NULL, '2019-01-25 21:51:18', '2019-01-25 21:51:18'),
-(13, 'bdfgggd', 'cddc', 3, 'uploads/post/15484249303.PNG', 'bdfgggd', NULL, '2019-01-25 22:02:10', '2019-01-25 22:02:10'),
-(4, 'Sint porro dolorem ullam consequatur.', 'Ex temporibus voluptatibus id aut earum est ea corporis quis nulla itaque est nihil perspiciatis omnis voluptatum alias voluptas.', 3, 'https://lorempixel.com/400/300/?31930', 'sint-porro-dolorem-ullam-consequatur', NULL, '2019-01-25 19:12:03', '2019-01-25 20:01:11'),
-(5, 'In aliquid consequatur illum tenetur possimus debitis.', 'Exercitationem reiciendis corrupti et qui molestiae aut eum consequatur et sint expedita id tempora sapiente voluptas rem excepturi eligendi libero voluptas placeat exercitationem debitis.', 2, 'https://lorempixel.com/400/300/?42224', 'in-aliquid-consequatur-illum-tenetur-possimus-debitis', NULL, '2019-01-25 19:12:03', '2019-01-25 20:01:11'),
-(6, 'Autem explicabo iusto mollitia.', 'Delectus quam est iusto alias pariatur iste ea minima veritatis ut esse corporis est vero eius aspernatur porro.', 2, 'https://lorempixel.com/400/300/?17457', 'autem-explicabo-iusto-mollitia', NULL, '2019-01-25 19:12:03', '2019-01-25 20:01:12'),
-(7, 'Numquam incidunt exercitationem qui.', 'Earum ratione fugiat ducimus quod consectetur dignissimos voluptatem illum voluptatem rerum accusamus blanditiis.', 3, 'https://lorempixel.com/400/300/?26331', 'numquam-incidunt-exercitationem-qui', NULL, '2019-01-25 19:12:03', '2019-01-25 20:01:13'),
-(8, 'Exercitationem beatae minima est quia.', 'Unde sit vel sapiente rerum quidem perferendis magnam qui sunt tempora velit sapiente quis fugit sint.', 4, 'https://lorempixel.com/400/300/?52571', 'exercitationem-beatae-minima-est-quia', NULL, '2019-01-25 19:12:03', '2019-01-25 20:01:14'),
-(9, 'Tempora et amet autem voluptatem.', 'Necessitatibus porro aperiam ad natus reprehenderit error id sed magnam quaerat ipsa odit.', 4, 'https://lorempixel.com/400/300/?48725', 'tempora-et-amet-autem-voluptatem', NULL, '2019-01-25 19:12:03', '2019-01-25 20:01:15'),
-(10, 'Et et aut est at ex.', 'Vero quaerat id magnam ut officiis nobis quod pariatur eius neque doloremque non voluptatem illo qui harum excepturi facere eveniet atque in odit et necessitatibus quod.', 3, 'https://lorempixel.com/400/300/?50500', 'et-et-aut-est-at-ex', NULL, '2019-01-25 19:12:03', '2019-01-25 20:01:16'),
-(17, 'bdfgggd', 'xsxsaxsa', 2, 'uploads/post/15484258576.PNG', 'bdfgggd', NULL, '2019-01-25 22:17:37', '2019-01-25 22:17:37'),
-(18, 'bdfgggd', 'xsxsaxsa', 2, 'uploads/post/15484258896.PNG', 'bdfgggd', NULL, '2019-01-25 22:18:09', '2019-01-25 22:18:09'),
-(19, 'verv', 'cdcd', 2, 'uploads/post/15484259464.PNG', 'verv', NULL, '2019-01-25 22:19:06', '2019-01-25 22:19:06'),
-(20, 'verv', 'cdcd', 2, 'uploads/post/15484259884.PNG', 'verv', NULL, '2019-01-25 22:19:48', '2019-01-25 22:19:48');
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -145,17 +113,66 @@ CREATE TABLE IF NOT EXISTS `post_tag` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `post_tag`
 --
 
 INSERT INTO `post_tag` (`id`, `post_id`, `tag_id`, `created_at`, `updated_at`) VALUES
-(1, 20, 4, NULL, NULL),
-(2, 20, 3, NULL, NULL),
-(3, 2, 4, NULL, NULL),
-(4, 2, 3, NULL, NULL);
+(1, 1, 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profiles`
+--
+
+DROP TABLE IF EXISTS `profiles`;
+CREATE TABLE IF NOT EXISTS `profiles` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `avatar` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `about` text COLLATE utf8mb4_unicode_ci,
+  `youtube` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `profiles`
+--
+
+INSERT INTO `profiles` (`id`, `avatar`, `user_id`, `about`, `youtube`, `facebook`, `created_at`, `updated_at`) VALUES
+(1, 'uploads/avatars/1548511077fdsfsd.jpg', 1, 'kuku bubuvsvsd', 'https://www.youtube.com/watch?v=hlvhf7rUfuQ', 'https://www.facebook.com/', '2019-01-26 07:38:57', '2019-01-26 09:57:57'),
+(3, 'uploads/avatars/a.jpg', 3, NULL, NULL, NULL, '2019-01-26 09:50:39', '2019-01-26 09:50:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE IF NOT EXISTS `settings` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `site_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact_email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `site_name`, `contact_number`, `contact_email`, `address`, `created_at`, `updated_at`) VALUES
+(1, 'Laravel\'s Bloga', '8 900 7562 4844', 'info@laravel_blog.com', 'Russia, Petersburg', '2019-01-26 11:37:51', '2019-01-26 11:46:05');
 
 -- --------------------------------------------------------
 
@@ -170,15 +187,14 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tags`
 --
 
 INSERT INTO `tags` (`id`, `tag`, `created_at`, `updated_at`) VALUES
-(4, 'csdcsdcsd', '2019-01-25 21:12:09', '2019-01-25 21:12:09'),
-(3, 'frrccss', '2019-01-25 21:07:14', '2019-01-25 21:11:25');
+(1, 'regrege', '2019-01-26 10:06:40', '2019-01-26 10:06:40');
 
 -- --------------------------------------------------------
 
@@ -192,20 +208,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT '0',
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Arev', 'arev@gmail.com', NULL, '$2y$10$yjAIiyxXg//XNtZkb3BC7eMjhpLC1L1uY.G/u5...r/6cRsb02Kca', NULL, '2019-01-25 19:12:01', '2019-01-25 19:12:01');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `admin`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Arev', 'arev@gmail.com', NULL, 1, '$2y$10$ntzyLo/YcSf5hqlUeRyIX.j4F98lSGe58132hoI7l9UYKL4K67xne', '4lvMvpO3B6X7rCkpJs90FrE5sI3L7ZSGi5rXYZlP1rOIWdjm38demMlRhxlZ', '2019-01-26 07:38:57', '2019-01-26 09:57:57'),
+(3, 'edgarw', 'edgarw@gmail.com', NULL, 0, '$2y$10$WTuyISB8RR8B5AttTWeM4ePtA14Hi0ZrNuM7ccVV.NwZmOJSISaqC', NULL, '2019-01-26 09:50:39', '2019-01-26 09:50:39');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
